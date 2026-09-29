@@ -125,12 +125,12 @@ def seed_initial_admin(db: Session) -> bool:
 
     username = os.getenv("INITIAL_ADMIN_USERNAME", "").strip()
     password = os.getenv("INITIAL_ADMIN_PASSWORD", "").strip()
-    email = os.getenv("INITIAL_ADMIN_EMAIL", "admin@balajiwood.com").strip()
+    email = os.getenv("INITIAL_ADMIN_EMAIL", "").strip()
 
-    if not username or not password:
+    if not username or not password or not email:
         raise RuntimeError(
-            "INITIAL_ADMIN_USERNAME and INITIAL_ADMIN_PASSWORD environment variables "
-            "must be configured to seed the initial administrator account."
+            "INITIAL_ADMIN_USERNAME, INITIAL_ADMIN_PASSWORD, and "
+            "INITIAL_ADMIN_EMAIL environment variables must all be configured."
         )
 
     # Hash password securely with bcrypt

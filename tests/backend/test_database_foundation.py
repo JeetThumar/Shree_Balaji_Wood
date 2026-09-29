@@ -322,8 +322,12 @@ def test_seed_admin_fail_safe(db_session: Session, monkeypatch):
     """Verify seed_initial_admin fails safely when environment variables are missing."""
     monkeypatch.delenv("INITIAL_ADMIN_USERNAME", raising=False)
     monkeypatch.delenv("INITIAL_ADMIN_PASSWORD", raising=False)
+    monkeypatch.delenv("INITIAL_ADMIN_EMAIL", raising=False)
 
-    with pytest.raises(RuntimeError, match="INITIAL_ADMIN_USERNAME and INITIAL_ADMIN_PASSWORD"):
+    with pytest.raises(
+        RuntimeError,
+        match="INITIAL_ADMIN_USERNAME, INITIAL_ADMIN_PASSWORD, and INITIAL_ADMIN_EMAIL",
+    ):
         seed_initial_admin(db_session)
 
 
