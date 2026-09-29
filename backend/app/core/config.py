@@ -20,7 +20,7 @@ class Settings:
     # Database
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL",
-        "postgresql://postgres:postgres@localhost:5432/balaji_wood"
+        "postgresql+psycopg2://postgres:postgres@localhost:5432/balaji_wood",
     )
 
     # Auth & Cookies
