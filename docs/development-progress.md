@@ -18,7 +18,7 @@
 
 ## Phase 3 Progress (Database Foundation)
 
-- [x] Database dependencies installed (`sqlalchemy>=2.0.0`, `alembic>=1.13.0`, `psycopg2-binary`, `psycopg`, `bcrypt`)
+- [x] Database dependencies installed (`sqlalchemy>=2.0.0`, `alembic>=1.13.0`, `psycopg2-binary>=2.9.9`, `bcrypt>=4.0.0`)
 - [x] Backend database configuration implemented (`app/core/database.py`, `app/core/config.py`)
 - [x] Declarative SQLAlchemy 2.0 models created:
   - `Admin` (`app/models/admin.py`)
